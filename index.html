@@ -16,7 +16,7 @@
     header {
       background-color: #005f73;
       color: white;
-      padding: 20px 0;
+      padding: 20px;
       text-align: center;
     }
     header h1 {
@@ -28,6 +28,7 @@
       display: flex;
       justify-content: center;
       padding: 10px 0;
+      flex-wrap: wrap;
     }
     nav a {
       color: white;
@@ -39,23 +40,34 @@
       text-decoration: underline;
     }
     main {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 20px auto;
       padding: 0 20px;
     }
     section {
       margin-bottom: 40px;
       background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     h2 {
       color: #005f73;
     }
+    ul {
+      padding-left: 20px;
+    }
     .contact strong {
       display: inline-block;
       width: 100px;
+    }
+    .social-links a {
+      margin-right: 15px;
+      color: #0a9396;
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      text-decoration: underline;
     }
     footer {
       background-color: #005f73;
@@ -82,8 +94,9 @@
   <main>
     <section id="about">
       <h2>About</h2>
-      <p>I am a computer scientist with over a decade of experience in High Performance Computing (HPC), AI/ML, and evolutionary algorithms. I’ve served in academia, industry, and non-profit sectors, currently leading impactful research and educational initiatives.</p>
+      <p>With 10+ years of experience in HPC, evolutionary algorithms, and AI/ML, I’ve worked at Intel, Brown, and multiple academic institutions. As the founder of K4AC, I also focus on applying technology for social good. My research spans parallel computing, bioinformatics, genetic algorithms, and AI-driven systems design.</p>
     </section>
+
     <section id="education">
       <h2>Education</h2>
       <ul>
@@ -92,35 +105,47 @@
         <li>B.Tech. (Hons), Electronics & Communication Engineering, SASTRA University, 2013</li>
       </ul>
     </section>
+
     <section id="experience">
-      <h2>Experience</h2>
+      <h2>Experience Highlights</h2>
       <ul>
-        <li><strong>Professor of Practice</strong>, SASTRA University (Remote), 2024 – 2025</li>
-        <li><strong>Graphics Hardware Engineer</strong>, Intel Corporation, 2022 – 2023</li>
-        <li><strong>Founder & CEO</strong>, K4AC Non-Profit, 2021 – Present</li>
-        <li><strong>Research Software Engineer</strong>, Brown University, 2021</li>
+        <li><strong>Graphics Hardware Engineer</strong>, Intel Corporation (2022–2023) – HPC & ML performance analysis for GPUs</li>
+        <li><strong>Research Software Engineer</strong>, Brown University (2021) – Supercomputing support and optimization</li>
+        <li><strong>Graduate Researcher</strong>, Colorado State University (2014–2022) – Genetic algorithms, CUDA, OpenMP, RNA modeling</li>
+        <li><strong>Intern</strong>, Singular Computing LLC & Lucas-TVS – Architecture mapping & embedded systems</li>
       </ul>
     </section>
+
     <section id="publications">
       <h2>Publications & Talks</h2>
-      <p>Author of numerous papers in venues such as GECCO, CGO, and PPSN. Speaker at national labs and international conferences.</p>
+      <p>Published in top conferences including GECCO, CGO, and PPSN. Recent work focuses on hybrid genetic algorithms and HPC optimizations.</p>
       <p><a href="https://scholar.google.com" target="_blank">View full list of publications</a></p>
     </section>
+
     <section id="announcements">
       <h2>Announcements</h2>
       <ul>
-        <li>📢 New paper on hybrid AI for RNA-RNA interaction accepted at IEEE BIBM 2025!</li>
-        <li>🧠 Upcoming invited talk at ACM SIGEVO Summer School – August 2025.</li>
-        <li>🎓 Accepting new graduate research collaborators starting Fall 2025.</li>
+        <li>📢 Reviewing papers for the 2025 International Conference on Machine Intelligence and Nature-Inspired Computing (MIND 2025)</li>
+        <li>📘 Authoring a forthcoming book in the Springer <em>Methods in Molecular Biology (MIMB)</em> series</li>
+        <li>🧠 Collaborating on a research paper with <a href="https://business.gmu.edu/profiles/aray8" target="_blank">Dr. Abhishek Ray</a> and <a href="https://biz.colostate.edu/about/directory/colostate-lumina" target="_blank">Dr. Lumina Albert</a> on Machine Learning methods for identifying patterns in the Illicit Massage Parlor business</li>
       </ul>
     </section>
+
     <section id="contact">
       <h2>Contact</h2>
       <div class="contact">
-        <p><strong>LinkedIn:</strong> <a href="https://in.linkedin.com/in/swesri" target="_blank">swesri</a></p>
         <p><strong>Email:</strong> <a href="mailto:varadarajan.swetha@gmail.com">varadarajan.swetha@gmail.com</a></p>
         <p><strong>Phone:</strong> +1-303-589-4370</p>
-        <p><strong>Location:</strong> Chicago, IL, USA</p>
+        <p><strong>Location:</strong> Greater Chicago Area, IL, USA</p>
+        <div class="social-links">
+          <p><strong>Social & Academic Links:</strong></p>
+          <a href="https://www.instagram.com/swetha_vr/" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com/swetha.varadarajan.7" target="_blank">Facebook</a>
+          <a href="https://x.com/swesri91" target="_blank">Twitter/X</a>
+          <a href="https://scholar.google.com/citations?user=Y4XoJ7EAAAAJ&hl=en" target="_blank">Google Scholar</a>
+          <a href="https://dblp.org/pid/225/6821.html" target="_blank">DBLP</a>
+          <a href="https://www.researchgate.net/profile/Swetha-Varadarajan?ev=hdr_xprf" target="_blank">ResearchGate</a>
+        </div>
       </div>
     </section>
   </main>
