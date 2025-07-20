@@ -147,6 +147,46 @@
     border-radius: 10px;
     margin-top: 1rem;
   }
+
+     /* Timeline styles */
+    .timeline {
+      border-left: 3px solid #0a9396;
+      padding-left: 15px;
+      margin-top: 20px;
+    }
+    .event {
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 20px;
+    }
+    .event::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      background: #0a9396;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+    .year {
+      font-weight: bold;
+      color: #0a9396;
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .badge {
+      background-color: #94d2bd;
+      color: #005f73;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.9em;
+      margin-top: 6px;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
