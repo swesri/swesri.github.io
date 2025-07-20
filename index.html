@@ -6,6 +6,7 @@
   <title>Dr. Swetha Varadarajan</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -105,20 +106,61 @@
       header h1 {
         font-size: 1.8em;
       }
+      .media-links,
+      .social-links a {
+        display: block;
+        margin-bottom: 10px;
+      }
+      .media-links {
+        text-align: center;
+      }
+      .media-links img {
+        margin: 0 auto;
+      }
+    }
+
+    /* Testimonial slider styles */
+    .testimonial-slider {
+      position: relative;
+      height: 160px;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+    .testimonial-slider blockquote {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      width: 100%;
+      margin: 0;
+      font-style: italic;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .testimonial-slider blockquote footer {
+      text-align: right;
+      margin-top: 10px;
+      font-weight: bold;
+      font-style: normal;
+      color: #005f73;
+    }
+    .testimonial-slider blockquote.active {
+      opacity: 1;
+      position: relative;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="linkedIN.png" alt="Dr. Swetha Varadarajan">
+    <img src="linkedIN.png" alt="Dr. Swetha Varadarajan headshot">
     <h1>Dr. Swetha Varadarajan</h1>
-    <p>Professor of Practice| High Performance Computing | Evolutionary Algorithms | AI/ML | Non-Profit </p>
+    <p>Professor of Practice | High Performance Computing | Evolutionary Algorithms | AI/ML | Non-Profit</p>
   </header>
 
   <nav>
     <a href="#about">About</a>
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
+    <a href="#teaching">Teaching</a>
     <a href="#publications">Publications</a>
     <a href="#announcements">Announcements</a>
     <a href="#media">Media</a>
@@ -150,6 +192,71 @@
       </ul>
     </section>
 
+    <!-- New Teaching Section -->
+    <section id="teaching">
+      <h2>Teaching</h2>
+
+      <h3>Teaching Experience</h3>
+      <ul>
+        <li><strong>2024</strong> – Assistant Professor of Practice, SASTRA University, Remote<br>
+            <em>Course:</em> Machine Learning | <em>Students:</em> 57 undergraduates (English Medium)</li>
+        <li><strong>2018</strong> – Mentor, REU Program, Colorado State University, USA<br>
+            <em>Project:</em> Polyhedral Acceleration of RNA-RNA Interaction Computations | <em>Students:</em> 12 undergraduates | <em>Supervisor:</em> Prof. Sanjay Rajopadhye</li>
+        <li><strong>2017</strong> – Teaching Assistant, Electrical Engineering, Johns Hopkins CTY, USA (22 middle-school students) | Instructor: Dr. Sayan Roy</li>
+        <li><strong>2017</strong> – TA, CIS 240 – Java App Development, CSU (42 undergrads) | Instructor: Dr. Ramadan Abdunabi</li>
+        <li><strong>2017</strong> – TA, CIS 340 – Advanced Java App Dev, CSU (38 undergrads) | Instructor: Dr. Ramadan Abdunabi</li>
+        <li><strong>2017</strong> – Tutor, Computer Networks, ECE 456, CSU</li>
+        <li><strong>2016</strong> – TA, CS 475 – Parallel Programming, CSU (36 on-campus, 9 online) | Instructor: Prof. Sanjay Rajopadhye<br>
+            <strong>Course Evaluation:</strong> Lab1: 4.27/5, Lab2: 4.63/5</li>
+        <li><strong>2015</strong> – Mentor, CS 560 – Fine-Grain Parallelism, CSU (1 graduate student) | Instructor: Prof. Sanjay Rajopadhye</li>
+        <li><strong>2014</strong> – Tutor, ECE 251 – Microprocessors &amp; ECE 202 – Circuit Theory, CSU</li>
+      </ul>
+
+      <h3>Course Evaluations</h3>
+      <p><strong>CS475 Parallel Programming:</strong><br>
+        Lab 1: 4.27 / 5<br>
+        Lab 2: 4.63 / 5<br>
+        Feedback consistently praised clarity, dedication, and helpfulness.
+      </p>
+
+      <h3>Student Testimonials</h3>
+      <div style="max-width: 800px; margin: auto;">
+        <div class="testimonial-slider">
+          <blockquote>
+            <p>“Swetha was passionate about the subject and ensured we understood the topic. She taught the class with mastery and was always available. A spectacular addition to any faculty.”</p>
+            <footer>— Benjamin Scott</footer>
+          </blockquote>
+          <blockquote>
+            <p>“She explained difficult concepts clearly and helped me improve my programming. Always responsive and insightful.”</p>
+            <footer>— Toomy Alkhonaizi</footer>
+          </blockquote>
+          <blockquote>
+            <p>“She went above and beyond the duties of a TA. Professional, articulate, and effective teacher. A great asset.”</p>
+            <footer>— Alexander Blum, CSU</footer>
+          </blockquote>
+          <blockquote>
+            <p>“She had a great reputation among us. Passionate, responsible, and helpful beyond office hours.”</p>
+            <footer>— Chenda Deng</footer>
+          </blockquote>
+          <blockquote>
+            <p>“She conveys knowledge creatively and helps students feel at ease. Inspiring and effective.”</p>
+            <footer>— Abhimanyu Chawla</footer>
+          </blockquote>
+          <blockquote>
+            <p>“That was a difficult class and you helped me multiple times. I managed to pass thanks to your support.”</p>
+            <footer>— Greg Poisson</footer>
+          </blockquote>
+        </div>
+      </div>
+
+      <h3>Sample Materials</h3>
+      <ul>
+        <li><a href="#" target="_blank">Machine Learning Course Syllabus (SASTRA, 2024)</a></li>
+        <li><a href="#" target="_blank">CS475 Parallel Programming Lab Assignments (CSU)</a></li>
+        <li><a href="#" target="_blank">Sample Student Feedback Form (2024)</a></li>
+      </ul>
+    </section>
+
     <section id="publications">
       <h2>Publications & Talks</h2>
       <p>Published in top conferences including GECCO, CGO, and PPSN. Recent work focuses on hybrid genetic algorithms and HPC optimizations.</p>
@@ -166,59 +273,53 @@
     </section>
 
     <section id="media">
-  <h2>Media Mentions</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+      <h2>Media Mentions</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px;">
 
-     <figure style="width: 220px; text-align: center;">
-      <a href="https://www.youtube.com/watch?v=-g7fDGx1OgA" target="_blank">
-        <img src="https://img.youtube.com/vi/-g7fDGx1OgA/0.jpg" alt="Interview with Senator" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
-      </a>
-      <figcaption>Interview with Senator Swetha Varadarajan</figcaption>
-    </figure>
-    
-   <figure style="width: 220px; text-align: center;">
-      <a href="https://natsci.source.colostate.edu/meet-four-female-students-who-are-leading-the-future-of-computer-science/" target="_blank">
-        <img src="csu_women_cs.jpg" alt="Women in CS Article" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
-      </a>
-      <figcaption>Featured in CSU News: Women Leading CS</figcaption>
-    </figure>
+         <figure style="width: 220px; text-align: center;">
+          <a href="https://www.youtube.com/watch?v=-g7fDGx1OgA" target="_blank">
+            <img src="https://img.youtube.com/vi/-g7fDGx1OgA/0.jpg" alt="Interview with Senator" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
+          </a>
+          <figcaption>Interview with Senator Swetha Varadarajan</figcaption>
+        </figure>
 
-   
+       <figure style="width: 220px; text-align: center;">
+          <a href="https://natsci.source.colostate.edu/meet-four-female-students-who-are-leading-the-future-of-computer-science/" target="_blank">
+            <img src="csu_women_cs.jpg" alt="Women in CS Article" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
+          </a>
+          <figcaption>Featured in CSU News: Women Leading CS</figcaption>
+        </figure>
 
-    <figure style="width: 220px; text-align: center;">
-      <a href="https://youtu.be/vcDt42KyNYQ" target="_blank">
-        <img src="https://img.youtube.com/vi/vcDt42KyNYQ/0.jpg" alt="PhD Interview" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
-      </a>
-      <figcaption>Interview as Recent PhD Graduate</figcaption>
-    </figure>
+        <figure style="width: 220px; text-align: center;">
+          <a href="https://youtu.be/vcDt42KyNYQ" target="_blank">
+            <img src="https://img.youtube.com/vi/vcDt42KyNYQ/0.jpg" alt="PhD Interview" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
+          </a>
+          <figcaption>Interview as Recent PhD Graduate</figcaption>
+        </figure>
 
-    
+         <figure style="width: 220px; text-align: center;">
+          <a href="https://www.natsci.colostate.edu/wp-content/uploads/sites/2/2019/12/308681_elementsfall19_full-mag-final-www.pdf" target="_blank">
+            <img src="csu_mag_cover.jpg" alt="CSU Magazine Cover" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
+          </a>
+          <figcaption>On the cover of CSU Natural Sciences Magazine</figcaption>
+        </figure>
 
-     <figure style="width: 220px; text-align: center;">
-      <a href="https://www.natsci.colostate.edu/wp-content/uploads/sites/2/2019/12/308681_elementsfall19_full-mag-final-www.pdf" target="_blank">
-        <img src="csu_mag_cover.jpg" alt="CSU Magazine Cover" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
-      </a>
-      <figcaption>On the cover of CSU Natural Sciences Magazine</figcaption>
-    </figure>
+        <figure style="width: 220px; text-align: center;">
+          <a href="https://collegian.com/articles/news/2020/10/category-news-ascsu-talks-bike-security-members-speak-on-new-legislation/" target="_blank">
+            <img src="ascsu_article.jpg" alt="ASCSU Mention" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
+          </a>
+          <figcaption>Mentioned in ASCSU Senate and CSU Collegian</figcaption>
+        </figure>
 
-    <figure style="width: 220px; text-align: center;">
-      <a href="https://collegian.com/articles/news/2020/10/category-news-ascsu-talks-bike-security-members-speak-on-new-legislation/" target="_blank">
-        <img src="ascsu_article.jpg" alt="ASCSU Mention" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
-      </a>
-      <figcaption>Mentioned in ASCSU Senate and CSU Collegian</figcaption>
-    </figure>
+         <figure style="width: 220px; text-align: center;">
+          <a href="https://www.nocohumantraffickingsymposium.org/swetha-varadarajan/" target="_blank">
+            <img src="nocotrafficking_thumb.jpg" alt="NoCo Human Trafficking Speaker" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
+          </a>
+          <figcaption>NoCo Human Trafficking Symposium (AI for Social Good)</figcaption>
+        </figure>
 
-     <figure style="width: 220px; text-align: center;">
-      <a href="https://www.nocohumantraffickingsymposium.org/swetha-varadarajan/" target="_blank">
-        <img src="nocotrafficking_thumb.jpg" alt="NoCo Human Trafficking Speaker" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
-      </a>
-      <figcaption>NoCo Human Trafficking Symposium (AI for Social Good)</figcaption>
-    </figure>
-
-  </div>
-</section>
-
-
+      </div>
+    </section>
 
     <section id="contact">
       <h2>Contact</h2>
@@ -242,5 +343,19 @@
   <footer>
     <p>&copy; 2025 Dr. Swetha Varadarajan | Last updated July 2025</p>
   </footer>
+
+  <script>
+    const quotes = document.querySelectorAll('.testimonial-slider blockquote');
+    let index = 0;
+
+    function showNextTestimonial() {
+      quotes.forEach(q => q.classList.remove('active'));
+      quotes[index].classList.add('active');
+      index = (index + 1) % quotes.length;
+    }
+
+    showNextTestimonial();
+    setInterval(showNextTestimonial, 6000);
+  </script>
 </body>
 </html>
