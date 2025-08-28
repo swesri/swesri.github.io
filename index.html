@@ -8,184 +8,225 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    :root {
+      --primary: #005f73;
+      --secondary: #0a9396;
+      --accent: #94d2bd;
+      --bg-light: #f4f7f9;
+      --text-dark: #333;
+    }
+
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f7f9;
-      color: #333;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
+
     header {
-      background-color: #005f73;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
-      padding: 30px 20px;
+      padding: 60px 20px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+    header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 60%);
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate {
+      100% { transform: rotate(360deg); }
+    }
+
     header img {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      border: 4px solid white;
-      margin-bottom: 15px;
+      border: 5px solid white;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease;
     }
+    header img:hover {
+      transform: scale(1.08);
+    }
+
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.8em;
+      font-weight: 700;
     }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
     nav {
-      background-color: #0a9396;
+      background: var(--secondary);
       display: flex;
       justify-content: center;
-      padding: 10px 0;
+      padding: 12px 0;
       flex-wrap: wrap;
       position: sticky;
       top: 0;
       z-index: 999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     }
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
+      margin: 0 18px;
       font-weight: bold;
+      position: relative;
+      transition: color 0.3s;
     }
-    nav a:hover {
-      text-decoration: underline;
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: white;
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s;
     }
+    nav a:hover::after {
+      width: 100%;
+    }
+
     main {
       max-width: 1100px;
-      margin: 20px auto;
+      margin: 30px auto;
       padding: 0 20px;
     }
+
     section {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
     }
+    section:hover {
+      transform: translateY(-5px);
+    }
+
     h2 {
-      color: #005f73;
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.8em;
+      position: relative;
     }
-    ul {
-      padding-left: 20px;
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin-top: 6px;
+      border-radius: 2px;
     }
-    .contact strong {
-      display: inline-block;
-      width: 100px;
+
+    ul li {
+      margin-bottom: 10px;
     }
-    .social-links a {
-      margin-right: 15px;
-      color: #0a9396;
+
+    .contact a {
+      color: var(--secondary);
       text-decoration: none;
+      transition: color 0.3s;
     }
-    .social-links a:hover {
+    .contact a:hover {
+      color: var(--primary);
       text-decoration: underline;
     }
+
+    .social-links a {
+      margin-right: 18px;
+      color: var(--secondary);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: var(--primary);
+    }
+
     footer {
-      background-color: #005f73;
+      background: var(--primary);
       color: white;
       text-align: center;
-      padding: 15px 0;
-      margin-top: 40px;
-    }
-    .media-links a {
-      display: block;
-      margin-bottom: 10px;
-      color: #0a9396;
-    }
-    @media (max-width: 600px) {
-      nav a {
-        margin: 10px 5px;
-        display: block;
-      }
-      .contact strong {
-        width: auto;
-        display: block;
-        margin-bottom: 5px;
-      }
-      header h1 {
-        font-size: 1.8em;
-      }
-      .media-links,
-      .social-links a {
-        display: block;
-        margin-bottom: 10px;
-      }
-      .media-links {
-        text-align: center;
-      }
-      .media-links img {
-        margin: 0 auto;
-      }
+      padding: 20px;
+      font-size: 0.9em;
+      margin-top: 60px;
+      box-shadow: 0 -3px 12px rgba(0,0,0,0.2);
     }
 
-    /* Testimonial slider styles */
-    .testimonial {
-    background-color: #ffffff;
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-  .testimonial blockquote {
-    font-style: italic;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-  .testimonial footer {
-    font-weight: bold;
-    color: #2a2a72;
-    margin-top: auto;
-  }
-  .testimonial-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 1rem;
-  }
-
-     /* Timeline styles */
+    /* Timeline */
     .timeline {
-      border-left: 3px solid #0a9396;
-      padding-left: 15px;
+      border-left: 3px solid var(--secondary);
+      padding-left: 20px;
       margin-top: 20px;
+      position: relative;
     }
     .event {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       position: relative;
-      padding-left: 20px;
+      padding-left: 25px;
+      transition: transform 0.3s ease;
     }
     .event::before {
       content: "";
       position: absolute;
-      left: -12px;
-      top: 5px;
-      width: 14px;
-      height: 14px;
-      background: #0a9396;
+      left: -13px;
+      top: 6px;
+      width: 15px;
+      height: 15px;
+      background: var(--secondary);
       border-radius: 50%;
       border: 3px solid white;
+      box-shadow: 0 0 6px rgba(0,0,0,0.3);
     }
+    .event:hover {
+      transform: translateX(5px);
+    }
+
     .year {
       font-weight: bold;
-      color: #0a9396;
+      color: var(--secondary);
       font-size: 1.1em;
       margin-bottom: 5px;
       display: block;
     }
     .badge {
-      background-color: #94d2bd;
-      color: #005f73;
+      background: var(--accent);
+      color: var(--primary);
       font-weight: bold;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 0.9em;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 0.85em;
       margin-top: 6px;
       display: inline-block;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+      }
+      nav a {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
@@ -193,20 +234,18 @@
   <header>
     <img src="linkedIN.png" alt="Dr. Swetha Varadarajan headshot">
     <h1>Dr. Swetha Varadarajan</h1>
-    <p>Professor of Practice | High Performance Computing | Evolutionary Algorithms | AI/ML | Non-Profit</p>
+    <p>Professor of Practice | HPC | Evolutionary Algorithms | AI/ML | Non-Profit</p>
   </header>
 
   <nav>
     <a href="#about">About</a>
     <a href="#announcements">Announcements</a>
-    
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#teaching">Teaching</a>
     <a href="#publications">Publications</a>
-    
     <a href="#media">Media</a>
-     <a href="#awards">Awards</a>
+    <a href="#awards">Awards</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -216,377 +255,12 @@
       <p>With 10+ years of experience in HPC, evolutionary algorithms, and AI/ML, I’ve worked at Intel, Brown, and multiple academic institutions. As the founder of K4AC, I also focus on applying technology for social good. My research spans parallel computing, bioinformatics, genetic algorithms, and AI-driven systems design.</p>
     </section>
 
-     <section id="announcements">
-      <h2>Announcements</h2>
-       Current...
-      <ul>
-        <li> Reviewing papers for the 2025 The Southern African Conference for AI Research (SACAIR 2025)</li>
-        <li> Reviewing papers for the 2025 Neural Networks Journal </li>
-        <li> Collaborating on a journal article with <a href="https://business.gmu.edu/profiles/aray8" target="_blank">Dr. Abhishek Ray</a> and <a href="https://biz.colostate.edu/about/directory/colostate-lumina" target="_blank">Dr. Lumina Albert</a> on Machine Learning methods for identifying patterns in the Illicit Massage Parlor business</li>
-        <li> Collaborating on a research project with Varian Medical System on applying genetic algorithms to Radiotherapy Treatment Planning </li>
-        <li> Collaborating on a reserach project with UIC </li>
-        <li> Active research on Spatio-Temporal Graph Neural Network, Traveling Salesman Problem </li>
-      </ul>
-       Past...
-        <ul>
-        <li>Reviewing papers for the 2025 International Conference on Machine Intelligence and Nature-Inspired Computing (MIND 2025)</li>
-       <li>Collaborating on a research paper with <a href="https://business.gmu.edu/profiles/aray8" target="_blank">Dr. Abhishek Ray</a> and <a href="https://biz.colostate.edu/about/directory/colostate-lumina" target="_blank">Dr. Lumina Albert</a> on Machine Learning methods for identifying patterns in the Illicit Massage Parlor business</li>
-      </ul>
-       
-    </section>
+    <!-- Keep your other sections (announcements, education, teaching, etc.) here with the new styles -->
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li>Ph.D., Computer Science, Colorado State University, 2022</li>
-        <li>M.S., Electrical Engineering, Colorado State University, 2017</li>
-        <li>B.Tech. (Hons), Electronics & Communication Engineering, SASTRA University, 2013</li>
-      </ul>
-    </section>
-
-    <section id="experience">
-      <h2>Experience Highlights</h2>
-      <ul>
-        <li><strong>Graphics Hardware Engineer</strong>, Intel Corporation (2022–2023) – HPC & ML performance analysis for GPUs</li>
-        <li><strong>Research Software Engineer</strong>, Brown University (2021) – Supercomputing support and optimization</li>
-        <li><strong>Graduate Researcher</strong>, Colorado State University (2014–2022) – Genetic algorithms, CUDA, OpenMP, RNA modeling</li>
-        <li><strong>Intern</strong>, Singular Computing LLC & Lucas-TVS – Architecture mapping & embedded systems</li>
-      </ul>
-    </section>
-
-   <section id="teaching">
-  <h2>Teaching</h2>
-
-  <h3>Teaching Experience</h3>
-
-<div style="overflow-x:auto;">
-  <table style="width:100%; border-collapse: collapse; margin-top: 15px;">
-    <thead>
-      <tr style="background-color: #0a9396; color: white;">
-        <th style="padding: 12px; text-align: center;">Year</th>
-        <th style="padding: 12px; text-align: center;">Role</th>
-        <th style="padding: 12px; text-align: center;">Institution</th>
-        <th style="padding: 12px; text-align: center;">Course / Project</th>
-        <th style="padding: 12px; text-align: center;">Audience</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="background-color: #f9f9f9;">
-        <td style="padding: 10px;">2024</td>
-        <td>Assistant Professor of Practice</td>
-        <td>SASTRA University (Remote)</td>
-        <td>Machine Learning</td>
-        <td>57 Undergraduates (English Medium)</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">2018</td>
-        <td>Mentor, REU Program</td>
-        <td>Colorado State University</td>
-        <td>Polyhedral Acceleration for RNA-RNA Interaction</td>
-        <td>12 Undergraduates (with Prof. Rajopadhye)</td>
-      </tr>
-      <tr style="background-color: #f9f9f9;">
-        <td style="padding: 10px;">2017</td>
-        <td>Teaching Assistant</td>
-        <td>Johns Hopkins CTY</td>
-        <td>Electrical Engineering</td>
-        <td>22 Middle School Students (Instructor: Dr. Roy)</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">2017</td>
-        <td>TA, CIS 240</td>
-        <td>Colorado State University</td>
-        <td>Java App Development</td>
-        <td>42 Undergraduates (Instructor: Dr. Abdunabi)</td>
-      </tr>
-      <tr style="background-color: #f9f9f9;">
-        <td style="padding: 10px;">2017</td>
-        <td>TA, CIS 340</td>
-        <td>Colorado State University</td>
-        <td>Advanced Java App Development</td>
-        <td>38 Undergraduates (Instructor: Dr. Abdunabi)</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">2017</td>
-        <td>Tutor</td>
-        <td>Colorado State University</td>
-        <td>Computer Networks (ECE 456)</td>
-        <td>Individual Sessions</td>
-      </tr>
-      <tr style="background-color: #f9f9f9;">
-        <td style="padding: 10px;">2016</td>
-        <td>TA, CS 475</td>
-        <td>Colorado State University</td>
-        <td>Parallel Programming</td>
-        <td>36 On-Campus + 9 Online (Prof. Rajopadhye)</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">2015</td>
-        <td>Mentor</td>
-        <td>Colorado State University</td>
-        <td>CS 560 – Fine-Grain Parallelism</td>
-        <td>1 Graduate Student (Prof. Rajopadhye)</td>
-      </tr>
-      <tr style="background-color: #f9f9f9;">
-        <td style="padding: 10px;">2014</td>
-        <td>Tutor</td>
-        <td>Colorado State University</td>
-        <td>Microprocessors (ECE 251)</td>
-        <td>Individual Sessions</td>
-      </tr>
-      <tr style="background-color: #f9f9f9;">
-        <td style="padding: 10px;">2014</td>
-        <td>Tutor</td>
-        <td>Colorado State University</td>
-        <td>Circuit Theory (ECE 202)</td>
-        <td>Individual Sessions</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-  <h3>Course Evaluations</h3>
-  <div style="background: #e6f2f4; padding: 15px; border-left: 4px solid #0a9396; border-radius: 8px; margin: 20px 0;">
-    <p><strong>CS475 Parallel Programming:</strong><br>
-    Lab 1: <strong>4.27 / 5</strong><br>
-    Lab 2: <strong>4.63 / 5</strong><br>
-    Feedback praised clarity, dedication, and helpfulness.</p>
-  </div>
-
- <h3>Student Testimonials</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-  <div style="background-color: #f9f9f9; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <img src="https://www.gravatar.com/avatar?d=identicon" alt="Benjamin Scott" style="width: 40px; height: 40px; border-radius: 50%;">
-      <strong>Benjamin Scott</strong>
-    </div>
-    <p>Swetha was passionate about the subject and ensured we understood the topic. A spectacular addition to any faculty.</p>
-  </div>
-
-  <div style="background-color: #f9f9f9; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <img src="https://www.gravatar.com/avatar?d=identicon" alt="Toomy Alkhonaizi" style="width: 40px; height: 40px; border-radius: 50%;">
-      <strong>Toomy Alkhonaizi</strong>
-    </div>
-    <p>She explained difficult concepts clearly and helped me improve my programming. Always responsive and insightful.</p>
-  </div>
-
-  <div style="background-color: #f9f9f9; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <img src="https://www.gravatar.com/avatar?d=identicon" alt="Alexander Blum" style="width: 40px; height: 40px; border-radius: 50%;">
-      <strong>Alexander Blum</strong>
-    </div>
-    <p>She went above and beyond the duties of a TA. A great asset.</p>
-  </div>
-
-  <div style="background-color: #f9f9f9; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <img src="https://www.gravatar.com/avatar?d=identicon" alt="Chenda Deng" style="width: 40px; height: 40px; border-radius: 50%;">
-      <strong>Chenda Deng</strong>
-    </div>
-    <p>She had a great reputation among us. Passionate, responsible, and helpful beyond office hours.</p>
-  </div>
-
-  <div style="background-color: #f9f9f9; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <img src="https://www.gravatar.com/avatar?d=identicon" alt="Abhimanyu Chawla" style="width: 40px; height: 40px; border-radius: 50%;">
-      <strong>Abhimanyu Chawla</strong>
-    </div>
-    <p>She conveys knowledge creatively and helps students feel at ease. Inspiring and effective.</p>
-  </div>
-
-  <div style="background-color: #f9f9f9; border-radius: 12px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <img src="https://www.gravatar.com/avatar?d=identicon" alt="Greg Poisson" style="width: 40px; height: 40px; border-radius: 50%;">
-      <strong>Greg Poisson</strong>
-    </div>
-    <p>That was a difficult class and you helped me multiple times. I managed to pass thanks to your support.</p>
-  </div>
-</div>
-
-
-  <h3 style="margin-top: 30px;">Sample Materials</h3>
-  <ul>
-    <li><a href="#" target="_blank">Machine Learning Course Syllabus (SASTRA, 2024)</a></li>
-    <li><a href="#" target="_blank">CS475 Parallel Programming Lab Assignments (CSU)</a></li>
-    <li><a href="#" target="_blank">Sample Student Feedback Form (2024)</a></li>
-  </ul>
-</section>
-
-    <section id="publications">
-      <h2>Publications & Talks</h2>
-      <p>Published in top conferences including GECCO, CGO, and PPSN. Recent work focuses on hybrid genetic algorithms and HPC optimizations.</p>
-      <p><a href="https://scholar.google.com/citations?user=Y4XoJ7EAAAAJ&hl=en" target="_blank">View full list of publications</a></p>
-    </section>
-
-   
-
-    <section id="media">
-      <h2>Media Mentions</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-
-         <figure style="width: 220px; text-align: center;">
-          <a href="https://www.youtube.com/watch?v=-g7fDGx1OgA" target="_blank">
-            <img src="https://img.youtube.com/vi/-g7fDGx1OgA/0.jpg" alt="Interview with Senator" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
-          </a>
-          <figcaption>Interview with Senator Swetha Varadarajan</figcaption>
-        </figure>
-
-       <figure style="width: 220px; text-align: center;">
-          <a href="https://natsci.source.colostate.edu/meet-four-female-students-who-are-leading-the-future-of-computer-science/" target="_blank">
-            <img src="csu_women_cs.jpg" alt="Women in CS Article" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
-          </a>
-          <figcaption>Featured in CSU News: Women Leading CS</figcaption>
-        </figure>
-
-        <figure style="width: 220px; text-align: center;">
-          <a href="https://youtu.be/vcDt42KyNYQ" target="_blank">
-            <img src="https://img.youtube.com/vi/vcDt42KyNYQ/0.jpg" alt="PhD Interview" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
-          </a>
-          <figcaption>Interview as Recent PhD Graduate</figcaption>
-        </figure>
-
-         <figure style="width: 220px; text-align: center;">
-          <a href="https://www.natsci.colostate.edu/wp-content/uploads/sites/2/2019/12/308681_elementsfall19_full-mag-final-www.pdf" target="_blank">
-            <img src="csu_mag_cover.jpg" alt="CSU Magazine Cover" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
-          </a>
-          <figcaption>On the cover of CSU Natural Sciences Magazine</figcaption>
-        </figure>
-
-        <figure style="width: 220px; text-align: center;">
-          <a href="https://collegian.com/articles/news/2020/10/category-news-ascsu-talks-bike-security-members-speak-on-new-legislation/" target="_blank">
-            <img src="ascsu_article.jpg" alt="ASCSU Mention" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
-          </a>
-          <figcaption>Mentioned in ASCSU Senate and CSU Collegian</figcaption>
-        </figure>
-
-         <figure style="width: 220px; text-align: center;">
-          <a href="https://www.nocohumantraffickingsymposium.org/swetha-varadarajan/" target="_blank">
-            <img src="nocotrafficking_thumb.jpg" alt="NoCo Human Trafficking Speaker" style="width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);" loading="lazy">
-          </a>
-          <figcaption>NoCo Human Trafficking Symposium (AI for Social Good)</figcaption>
-        </figure>
-
-      </div>
-    </section>
-
-    <section id="awards">
-    <h2>🎓 Awards, Fellowships & Grants</h2>
-
-  <div class="timeline">
-    <div class="event">
-      <span class="year">2022</span>
-      <h3>Intel Peer Recognition Award</h3>
-      <p>For displaying OneIntel Value, Intel, USA</p>
-      <span class="badge">USD 25</span>
-    </div>
-
-    <div class="event">
-      <span class="year">2020</span>
-      <h3>Wim Bohm and Partners Ph.D. Award</h3>
-      <p>Colorado State University, USA</p>
-      <span class="badge">USD 13K</span>
-    </div>
-
-    <div class="event">
-      <span class="year">2019</span>
-      <h3>Evolutionary Computation and AI Fellowship</h3>
-      <p>Colorado State University, USA</p>
-      <span class="badge">USD 5K</span>
-    </div>
-
-    <div class="event">
-      <span class="year">2019</span>
-      <h3>Travel Grant - GECCO Conference</h3>
-      <p>Prague, Czech Republic</p>
-    </div>
-
-    <div class="event">
-      <span class="year">2019</span>
-      <h3>Travel Grant - CGO Conference</h3>
-      <p>Washington D.C., USA</p>
-    </div>
-
-    <div class="event">
-      <span class="year">2013</span>
-      <h3>Dean’s Merit List – Top 10%</h3>
-      <p>SASTRA University, India</p>
-      <span class="badge">INR 7K</span>
-    </div>
-
-    <div class="event">
-      <span class="year">2012</span>
-      <h3>Satellite Communication – Dept. Topper</h3>
-      <p>SASTRA University, India</p>
-      <span class="badge">INR 200</span>
-    </div>
-
-    <div class="event">
-      <span class="year">2012</span>
-      <h3>Dean’s Merit List – Top 10%</h3>
-      <p>SASTRA University, India</p>
-      <span class="badge">INR 7K</span>
-    </div>
-
-    <div class="event">
-      <span class="year">2011</span>
-      <h3>Pulse & Wave Shaping – Dept. Topper</h3>
-      <p>SASTRA University, India</p>
-      <span class="badge">INR 100</span>
-    </div>
-
-    <div class="event">
-      <span class="year">2010</span>
-      <h3>Dean’s Merit List – Top 2%</h3>
-      <p>SASTRA University, India</p>
-      <span class="badge">INR 14K</span>
-    </div>
-
-    <div class="event">
-      <span class="year">2007</span>
-      <h3>State Rank – Biology Course</h3>
-      <p>Tamil Nadu, India</p>
-      <span class="badge">INR 0</span>
-    </div>
-  </div>
-      </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="contact">
-        <p><strong>Email:</strong> <a href="mailto:varadarajan.swetha@gmail.com">varadarajan.swetha@gmail.com</a></p>
-        <p><strong>Phone:</strong> +1-303-589-4370</p>
-        <p><strong>Location:</strong> Greater Chicago Area, IL, USA</p>
-        <div class="social-links">
-          <p><strong>Social & Academic Links:</strong></p>
-          <a href="https://www.instagram.com/swetha_vr/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-          <a href="https://www.facebook.com/swetha.varadarajan.7" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-          <a href="https://x.com/swesri91" target="_blank"><i class="fab fa-x-twitter"></i> Twitter/X</a>
-          <a href="https://scholar.google.com/citations?user=Y4XoJ7EAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-          <a href="https://dblp.org/pid/225/6821.html" target="_blank"><i class="fas fa-database"></i> DBLP</a>
-          <a href="https://www.researchgate.net/profile/Swetha-Varadarajan?ev=hdr_xprf" target="_blank"><i class="fas fa-flask"></i> ResearchGate</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Dr. Swetha Varadarajan | Last updated July 2025</p>
   </footer>
-
-  <script>
-    const quotes = document.querySelectorAll('.testimonial-slider blockquote');
-    let index = 0;
-
-    function showNextTestimonial() {
-      quotes.forEach(q => q.classList.remove('active'));
-      quotes[index].classList.add('active');
-      index = (index + 1) % quotes.length;
-    }
-
-    showNextTestimonial();
-    setInterval(showNextTestimonial, 6000);
-  </script>
 </body>
 </html>
