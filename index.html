@@ -23,6 +23,7 @@
       background: var(--bg-light);
       color: var(--text-dark);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -33,44 +34,13 @@
       position: relative;
       overflow: hidden;
     }
-    header::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 60%);
-      animation: rotate 20s linear infinite;
-    }
-    @keyframes rotate {
-      100% { transform: rotate(360deg); }
-    }
-
     header img {
       width: 130px;
       height: 130px;
       border-radius: 50%;
       border: 5px solid white;
       margin-bottom: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      transition: transform 0.4s ease;
     }
-    header img:hover {
-      transform: scale(1.08);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.8em;
-      font-weight: 700;
-    }
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-      opacity: 0.9;
-    }
-
     nav {
       background: var(--secondary);
       display: flex;
@@ -79,29 +49,13 @@
       flex-wrap: wrap;
       position: sticky;
       top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      z-index: 1000;
     }
     nav a {
       color: white;
       text-decoration: none;
       margin: 0 18px;
       font-weight: bold;
-      position: relative;
-      transition: color 0.3s;
-    }
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background: white;
-      bottom: -4px;
-      left: 0;
-      transition: width 0.3s;
-    }
-    nav a:hover::after {
-      width: 100%;
     }
 
     main {
@@ -116,50 +70,17 @@
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-    }
-    section:hover {
-      transform: translateY(-5px);
+      scroll-margin-top: 100px;
     }
 
     h2 {
       color: var(--primary);
       margin-bottom: 15px;
-      font-size: 1.8em;
-      position: relative;
-    }
-    h2::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: var(--accent);
-      margin-top: 6px;
-      border-radius: 2px;
-    }
-
-    ul li {
-      margin-bottom: 10px;
     }
 
     .contact a {
       color: var(--secondary);
       text-decoration: none;
-      transition: color 0.3s;
-    }
-    .contact a:hover {
-      color: var(--primary);
-      text-decoration: underline;
-    }
-
-    .social-links a {
-      margin-right: 18px;
-      color: var(--secondary);
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    .social-links a:hover {
-      color: var(--primary);
     }
 
     footer {
@@ -167,67 +88,40 @@
       color: white;
       text-align: center;
       padding: 20px;
-      font-size: 0.9em;
       margin-top: 60px;
-      box-shadow: 0 -3px 12px rgba(0,0,0,0.2);
     }
 
-    /* Timeline */
-    .timeline {
-      border-left: 3px solid var(--secondary);
-      padding-left: 20px;
-      margin-top: 20px;
-      position: relative;
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
     }
-    .event {
-      margin-bottom: 25px;
-      position: relative;
-      padding-left: 25px;
-      transition: transform 0.3s ease;
-    }
-    .event::before {
-      content: "";
-      position: absolute;
-      left: -13px;
-      top: 6px;
-      width: 15px;
-      height: 15px;
+
+    form button {
       background: var(--secondary);
-      border-radius: 50%;
-      border: 3px solid white;
-      box-shadow: 0 0 6px rgba(0,0,0,0.3);
-    }
-    .event:hover {
-      transform: translateX(5px);
-    }
-
-    .year {
-      font-weight: bold;
-      color: var(--secondary);
-      font-size: 1.1em;
-      margin-bottom: 5px;
-      display: block;
-    }
-    .badge {
-      background: var(--accent);
-      color: var(--primary);
-      font-weight: bold;
-      padding: 4px 10px;
-      border-radius: 15px;
-      font-size: 0.85em;
-      margin-top: 6px;
-      display: inline-block;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
     }
 
-    /* Responsive */
-    @media (max-width: 700px) {
-      nav {
-        flex-direction: column;
-      }
-      nav a {
-        margin: 10px 0;
-      }
+    form button:hover {
+      background: var(--primary);
     }
+
+    .success-msg, .error-msg {
+      display: none;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .success-msg { color: green; }
+    .error-msg { color: red; }
   </style>
 </head>
 <body>
@@ -252,15 +146,78 @@
   <main>
     <section id="about">
       <h2>About</h2>
-      <p>With 10+ years of experience in HPC, evolutionary algorithms, and AI/ML, I’ve worked at Intel, Brown, and multiple academic institutions. As the founder of K4AC, I also focus on applying technology for social good. My research spans parallel computing, bioinformatics, genetic algorithms, and AI-driven systems design.</p>
+      <p>With 10+ years of experience in HPC, evolutionary algorithms, and AI/ML, I’ve worked at Intel, Brown, and multiple academic institutions. As the founder of K4AC, I also focus on applying technology for social good.</p>
     </section>
 
-    <!-- Keep your other sections (announcements, education, teaching, etc.) here with the new styles -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:varadarajan.swetha@gmail.com">varadarajan.swetha@gmail.com</a></p>
+      <p>Phone: +1-303-589-4370</p>
+      <p>Location: Greater Chicago Area, IL, USA</p>
 
+      <form id="contactForm" action="https://formspree.io/f/mlezbeyr" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <p class="success-msg">Thank you! Your message has been sent.</p>
+      <p class="error-msg">Oops! Something went wrong. Please try again.</p>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Dr. Swetha Varadarajan | Last updated July 2025</p>
+    <p>&copy; 2025 Dr. Swetha Varadarajan | Last updated August 2025</p>
   </footer>
+
+  <script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Contact form handling
+    const form = document.getElementById('contactForm');
+    const successMsg = document.querySelector('.success-msg');
+    const errorMsg = document.querySelector('.error-msg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          errorMsg.style.display = 'none';
+          form.reset();
+        } else {
+          errorMsg.style.display = 'block';
+          successMsg.style.display = 'none';
+        }
+      }).catch(() => {
+        errorMsg.style.display = 'block';
+        successMsg.style.display = 'none';
+      });
+    });
+  </script>
 </body>
 </html>
